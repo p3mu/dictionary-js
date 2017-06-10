@@ -1,19 +1,3 @@
-// window.fetch('./codes.json')
-//   .then(res => res.json())
-//   .then(data => {
-//     const codesData = data
-//     document.querySelector('#button').addEventListener('click', handleInput)
-//     function handleInput () {
-//       let inputValue = document.querySelector('#input').value
-//       document.getElementById('target').innerHTML = codesData[inputValue] || "invalid code"
-//     }
-//      document.body.addEventListener('keypress', function (ev) {
-//   if (ev.keyCode === 13) {
-//     document.querySelector('#button').click()
-//   }
-//   })
-//   })
-
 const $ = s => document.querySelector(s)
 
 let dictionary
@@ -24,7 +8,7 @@ window.fetch('words.txt')
   })
 
 $('#input').addEventListener('input', function (e) {
-  const search = e.target.value
+  const search = e.target.value.toLowerCase()
   if (!dictionary ) $('#target').innerHTML = 'Dictionary not loaded'
 
   const result = dictionary.filter(line => line[0] === search)
